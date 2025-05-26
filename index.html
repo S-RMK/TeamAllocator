@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Team Allocator</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link
@@ -42,6 +42,14 @@
     footer {
       position: relative;
       z-index: 10;
+    }
+    /* Ensure footer and table visible on mobile */
+    footer div {
+      max-width: 100% !important;
+      overflow-x: auto;
+    }
+    table {
+      min-width: 200px;
     }
   </style>
 </head>
@@ -92,12 +100,12 @@
   </div>
 
   <footer class="p-6 flex-shrink-0 -translate-y-8">
-    <div class="max-w-md mx-auto border border-black rounded-lg overflow-hidden">
-      <table class="w-full text-center text-[0.75rem] font-bold">
+    <div class="max-w-md mx-auto border border-black rounded-lg overflow-x-auto">
+      <table class="w-full text-center text-[0.75rem] font-bold min-w-[200px]">
         <tbody>
           <tr>
-            <td id="home-tab" class="bg-black text-[#E6E1D9] py-3 cursor-default select-none">HOME</td>
-            <td id="players-tab" class="py-3 cursor-pointer select-none hover:bg-gray-300">PLAYERS</td>
+            <td id="home-tab" class="bg-black text-[#E6E1D9] py-3 cursor-default select-none whitespace-nowrap">HOME</td>
+            <td id="players-tab" class="py-3 cursor-pointer select-none hover:bg-gray-300 whitespace-nowrap">PLAYERS</td>
           </tr>
         </tbody>
       </table>
